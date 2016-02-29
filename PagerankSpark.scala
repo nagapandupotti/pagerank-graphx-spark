@@ -74,7 +74,7 @@ object PagerankSpark {
     val output = result.collect().sortBy(x => x._2._2)
     val r = output.take(100).reverse
     val pw = new PrintWriter(new File("pageranksparkoutput.txt"))
-    r.foreach(tup => (println(tup._2._1 + " has rank " + tup._2._2 + "."), pw.write(tup._2._1 + " has rank " + tup._2._2 + "." + "\n")))
+    r.foreach(tup => (println(tup._2._1 + " has rank " + tup._2._2 + "."), pw.write(tup._2._1 + "   " + tup._2._2 + "\n")))
     pw.close
     val t2 = System.currentTimeMillis
     println("Time taken for PagerankSpark for " + iterations + " iterations is " + (t2-t1) + " msecs")
